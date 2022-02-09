@@ -9,12 +9,14 @@
     <Text
         ohos:id="$+id:bpm"
         ohos:height="match_content"
-        ohos:width="match_content"
+        ohos:width="105vp"
         ohos:background_element="$graphic:background_ability_main"
         ohos:center_in_parent="true"
+        ohos:focusable="focus_enable"
+        ohos:focusable_in_touch="true"
         ohos:text_alignment="center"
         ohos:text_size="60vp"
-        tools:text="80"
+        tools:text="234"
         />
 
     <DirectionalLayout
@@ -57,6 +59,7 @@
         ohos:text_alignment="center"
         ohos:text_size="30vp"
         ohos:vertical_center="true"
+        ohos:right_margin="10vp"
         tools:text="TAP"
         />
 
