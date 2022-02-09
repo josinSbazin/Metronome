@@ -1,0 +1,58 @@
+{
+  "app": {
+    "bundleName": "com.josin.metronome", 
+    "vendor": "josin",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.josin.metronome",
+    "name": ".MyApplication",
+    "mainAbility": "com.josin.metronome.MainAbility",
+    "deviceType": [
+      "wearable"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry",
+      "installationFree": false
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "orientation": "unspecified",
+        "name": "com.josin.metronome.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:entry_MainAbility",
+        "type": "page",
+        "launchType": "standard"
+      }
+    ],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.VIBRATE",
+        "reason": "",
+        "usedScene": {
+          "ability": [
+            ".MainAbility"
+          ],
+          "when": "inuse"
+        }
+      }
+    ]
+  }
+}

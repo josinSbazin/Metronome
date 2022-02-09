@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    xmlns:tools="http://schemas.huawei.com/tools"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    >
+
+    <Text
+        ohos:id="$+id:bpm"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:background_ability_main"
+        ohos:center_in_parent="true"
+        ohos:text_alignment="center"
+        ohos:text_size="60vp"
+        tools:text="80"
+        />
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:align_parent_left="true"
+        ohos:left_of="$id:bpm"
+        ohos:orientation="vertical"
+        ohos:vertical_center="true">
+
+        <Image
+            ohos:id="$+id:settings"
+            ohos:height="50vp"
+            ohos:width="50vp"
+            ohos:image_src="$graphic:ic_settings"
+            ohos:layout_alignment="center"
+            />
+
+    </DirectionalLayout>
+
+    <Text
+        ohos:id="$+id:emphasis"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:above="$id:bpm"
+        ohos:align_parent_top="true"
+        ohos:horizontal_center="true"
+        ohos:text_alignment="center"
+        ohos:text_size="40vp"
+        ohos:top_margin="12vp"
+        tools:text="4/4"
+        />
+
+    <Text
+        ohos:id="$+id:tapTempo"
+        ohos:height="50vp"
+        ohos:width="match_content"
+        ohos:align_parent_right="true"
+        ohos:right_of="$id:bpm"
+        ohos:text_alignment="center"
+        ohos:text_size="30vp"
+        ohos:vertical_center="true"
+        tools:text="TAP"
+        />
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:align_parent_bottom="true"
+        ohos:below="$id:bpm"
+        ohos:horizontal_center="true"
+        ohos:orientation="horizontal">
+
+        <Image
+            ohos:id="$+id:playPause"
+            ohos:height="50vp"
+            ohos:width="50vp"
+            ohos:bottom_margin="10vp"
+            ohos:image_src="$graphic:ic_baseline_pause"
+            ohos:layout_alignment="center"
+            />
+    </DirectionalLayout>
+</DependentLayout>
