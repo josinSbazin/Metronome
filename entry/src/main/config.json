@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.josin.metronome", 
+    "bundleName": "com.josin.metronome",
     "vendor": "josin",
     "version": {
       "code": 1000000,
@@ -10,7 +10,7 @@
   "deviceConfig": {},
   "module": {
     "package": "com.josin.metronome",
-    "name": ".MyApplication",
+    "name": "com.josin.metronome.Application",
     "mainAbility": "com.josin.metronome.MainAbility",
     "deviceType": [
       "wearable"
@@ -40,6 +40,15 @@
         "label": "$string:entry_MainAbility",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "backgroundModes": [
+          "audioPlayback"
+        ],
+        "name": "com.josin.metronome.TickServiceAbility",
+        "icon": "$media:icon",
+        "description": "$string:tickserviceability_description",
+        "type": "service"
       }
     ],
     "reqPermissions": [

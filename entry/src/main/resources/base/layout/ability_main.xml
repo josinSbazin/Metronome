@@ -76,7 +76,7 @@
             ohos:height="50vp"
             ohos:width="50vp"
             ohos:bottom_margin="10vp"
-            ohos:image_src="$graphic:ic_baseline_pause"
+            ohos:image_src="$graphic:ic_baseline_play"
             ohos:layout_alignment="center"
             />
     </DirectionalLayout>
