@@ -15,6 +15,7 @@ import ohos.agp.components.element.Element;
 import ohos.agp.components.element.VectorElement;
 import ohos.bundle.ElementName;
 import ohos.event.commonevent.*;
+import ohos.powermanager.PowerManager;
 import ohos.rpc.IRemoteObject;
 import ohos.rpc.RemoteException;
 
@@ -32,6 +33,8 @@ public class MainAbilitySlice extends AbilitySlice {
 
     private boolean isPlaying = false;
 
+    private PowerManager.RunningLock runningLock1;
+    private PowerManager.RunningLock runningLock2;
     private TickServiceAbility.TickRemoteObject remote;
     private MetronomeEventSubscriber subscriber;
 
@@ -56,11 +59,22 @@ public class MainAbilitySlice extends AbilitySlice {
 
         settings = ServiceLocator.getServiceLocator(getAbility()).getSettings();
 
+        setUpRunningLock();
         findComponents();
         setUpPlayPauseButton();
         setUpBpm();
         initSubscribeEvent();
         startService();
+    }
+
+    private void setUpRunningLock() {
+        PowerManager powerManager = new PowerManager();
+        runningLock1 = powerManager.createRunningLock("metronome1",
+                PowerManager.RunningLockType.PROXIMITY_SCREEN_CONTROL);
+        runningLock1.lock(300000);
+        runningLock2 = powerManager.createRunningLock("metronome2",
+                PowerManager.RunningLockType.BACKGROUND);
+        runningLock2.lock(300000);
     }
 
     @Override
@@ -71,6 +85,8 @@ public class MainAbilitySlice extends AbilitySlice {
             System.out.println(e.getLocalizedMessage());
         }
         disconnectAbility(connection);
+        runningLock1.unLock();
+        runningLock2.unLock();
     }
 
     private void findComponents() {

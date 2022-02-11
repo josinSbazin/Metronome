@@ -4,6 +4,7 @@ import com.josin.metronome.slice.Settings;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.ability.LocalRemoteObject;
 import ohos.aafwk.content.Intent;
+import ohos.aafwk.content.IntentParams;
 import ohos.aafwk.content.Operation;
 import ohos.event.commonevent.CommonEventData;
 import ohos.event.commonevent.CommonEventManager;
@@ -96,7 +97,7 @@ public class TickServiceAbility extends Ability {
             System.out.println(e.getLocalizedMessage());
         }
         int notificationId = 1;
-        NotificationRequest request = new NotificationRequest(notificationId);
+        NotificationRequest request = new NotificationRequest(getContext(), notificationId);
         request.setSlotId(slot.getId());
         String title = "Metronome";
         String text = "The Metronome is in " + message;
@@ -106,6 +107,9 @@ public class TickServiceAbility extends Ability {
         NotificationRequest.NotificationContent notificationContent =
                 new NotificationRequest.NotificationContent(content);
         request.setContent(notificationContent);
+        IntentParams params = new IntentParams();
+        params.setParam("MinusOneExtraTag", "ONGOING_TAG"); // Ensure that the MinusOneExtraTag is correct.
+        request.setAdditionalData(params);
         keepBackgroundRunning(notificationId, request);
     }
 
